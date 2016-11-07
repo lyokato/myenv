@@ -1,0 +1,43 @@
+---
+- name: vim autoload directory
+  file: path={{ home }}/.vim/autoload state=directory owner={{ username }} group={{ groupname }} mode=0755
+
+- name: vim bundle directory
+  file: path={{ home }}/.vim/bundle state=directory owner={{ username }} group={{ groupname }} mode=0755
+
+- name: install pathogen
+  shell: curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+
+- name: install elixir syntax
+  shell: git clone https://github.com/elixir-lang/vim-elixir.git ~/.vim/bundle/vim-elixir
+
+- name: install nerdtree
+  shell: git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
+
+- name: install vim-airline
+  shell: git clone https://github.com/vim-airline/vim-airline.git ~/.vim/bundle/vim-airline
+
+- name: install onedark.vim
+  shell: git clone https://github.com/joshdick/onedark.vim.git ~/.vim/bundle/onedark.vim
+
+- name: install vim-polyglt
+  shell: git clone https://github.com/sheerun/vim-polyglot.git ~/.vim/bundle/vim-polyglot
+
+- name: install vim-trailing-whitespace
+  shell: git clone https://github.com/bronson/vim-trailing-whitespace.git ~/.vim/bundle/vim-trailing-whitespace
+
+- name: install indentLine
+  shell: git clone https://github.com/Yggdroot/indentLine.git ~/.vim/bundle/indentLine
+
+- name: install neocomplete
+  shell: git clone https://github.com/Shougo/neocomplete.vim.git ~/.vim/bundle/neocomplete.vim
+
+- name: install endwise
+  shell: git clone https://github.com/tpope/vim-endwise.git ~/.vim/bundle/vim-endwise
+
+- name: install autoclose
+  shell: git clone https://github.com/Townk/vim-autoclose.git ~/.vim/bundle/vim-autoclose
+
+- name: copy default .vimrc
+  copy: src=.vimrc dest={{ home }}/.vimrc owner={{ username }} group={{ groupname }} mode=0644
+
