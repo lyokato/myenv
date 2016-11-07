@@ -10,6 +10,11 @@ let mapleader = ","
 noremap \ ,
 
 " nerdtree
+"
+" set on shell env
+"export LC_CTYPE=en_US.UTF-8
+"export LC_ALL=en_US.UTF-8
+
 let NERDTreeShowHidden = 1
 map <C-n> :NERDTreeToggle<CR>
 
