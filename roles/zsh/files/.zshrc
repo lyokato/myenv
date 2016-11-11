@@ -30,7 +30,15 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
+PATH=/bin:/usr/bin:/usr/local/bin:/usr/local/opt/coreutils/libexec/gnubin:${PATH}
+export PATH
+
 alias ls='ls --color=auto'
+eval "$(dircolors ~/.zsh/dircolors-solarized/dircolors.ansi-universal)"
+
+if [ -n "$LS_COLORS" ]; then
+     zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+fi
 
 chpwd() { ls -ltr --color=auto }
 

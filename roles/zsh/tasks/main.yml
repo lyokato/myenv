@@ -5,6 +5,12 @@
   shell: git clone https://github.com/tarjoilija/zgen.git ~/.zgen
   when: not f.stat.exists
 
+- stat: path={{ home }}/.zsh/dircolors-solarized
+  register: f
+- name: install solarized
+  shell: git clone https://github.com/seebi/dircolors-solarized ~/.zsh/dircolors-solarized
+  when: not f.stat.exists
+
 - name: copy default .zshrc
   copy: src=.zshrc dest={{ home }}/.zshrc owner={{ username }} group={{ groupname }} mode=0644
 
