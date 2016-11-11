@@ -16,9 +16,10 @@ noremap ; :
 " set on shell env
 "export LC_CTYPE=en_US.UTF-8
 "export LC_ALL=en_US.UTF-8
-
+"
 let NERDTreeShowHidden = 1
-map <C-n> :NERDTreeToggle<CR>
+let g:nerdtree_tabs_open_on_console_startup=1
+map <C-n> :NERDTreeTabsToggle<CR>
 
 " airline
 set laststatus=2
@@ -34,6 +35,10 @@ if (empty($TMUX))
 endif
 
 colorscheme onedark
+
+hi TabLine     term=reverse cterm=reverse ctermfg=white ctermbg=black
+hi TabLineSel  term=bold cterm=bold,underline ctermfg=cyan
+hi TabLineFill term=reverse cterm=reverse ctermfg=white ctermbg=black
 
 autocmd BufWritePre * :FixWhitespace
 let g:indentLine_color_term = 239

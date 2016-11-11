@@ -23,6 +23,12 @@
   shell: git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
   when: not f.stat.exists
 
+- stat: path={{ home }}/.vim/bundle/jistr/vim-nerdtree-tabs
+  register: f
+- name: install nerdtree tabs
+  shell: git clone https://github.com/jistr/vim-nerdtree-tabs.git ~/.vim/bundle/vim-nerdtree-tabs
+  when: not f.stat.exists
+
 - stat: path={{ home }}/.vim/bundle/vim-airline
   register: f
 - name: install vim-airline
