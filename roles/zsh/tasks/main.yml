@@ -1,0 +1,7 @@
+---
+- name: install zgen
+  shell: git clone https://github.com/tarjoilija/zgen.git ~/.zgen"
+
+- name: copy default .zshrc
+  copy: src=.zshrc dest={{ home }}/.zshrc owner={{ username }} group={{ groupname }} mode=0644
+

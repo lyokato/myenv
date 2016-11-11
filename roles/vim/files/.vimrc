@@ -9,6 +9,8 @@ set shiftwidth=2
 let mapleader = ","
 noremap \ ,
 
+noremap ; :
+
 " nerdtree
 "
 " set on shell env
