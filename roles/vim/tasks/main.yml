@@ -17,13 +17,25 @@
   shell: git clone https://github.com/elixir-lang/vim-elixir.git ~/.vim/bundle/vim-elixir
   when: not f.stat.exists
 
+- stat: path={{ home }}/.vim/bundle/vim-mix
+  register: f
+- name: install elixir mix
+  shell: git clone https://github.com/mattreduce/vim-mix.git ~/.vim/bundle/vim-mix
+  when: not f.stat.exists
+
+- stat: path={{ home }}/.vim/bundle/syntastic
+  register: f
+- name: install syntastic
+  shell: git clone https://github.com/scrooloose/syntastic.git ~/.vim/bundle/syntastic
+  when: not f.stat.exists
+
 - stat: path={{ home }}/.vim/bundle/nerdtree
   register: f
 - name: install nerdtree
   shell: git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
   when: not f.stat.exists
 
-- stat: path={{ home }}/.vim/bundle/jistr/vim-nerdtree-tabs
+- stat: path={{ home }}/.vim/bundle/vim-nerdtree-tabs
   register: f
 - name: install nerdtree tabs
   shell: git clone https://github.com/jistr/vim-nerdtree-tabs.git ~/.vim/bundle/vim-nerdtree-tabs
