@@ -2,3 +2,4 @@
 - hosts: local
   roles:
   - { role: vim, username: lyokato, groupname: staff, home: /Users/lyokato }
+  - { role: zsh, username: lyokato, groupname: staff, home: /Users/lyokato }

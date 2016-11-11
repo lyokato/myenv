@@ -1,5 +1,4 @@
-
-urce "${HOME}/.zgen/zgen.zsh"
+source "${HOME}/.zgen/zgen.zsh"
 
 if ! zgen saved; then
 
@@ -32,3 +31,5 @@ HISTSIZE=10000
 SAVEHIST=10000
 
 chpwd() { ls -ltr --color=auto }
+
+[ -e ~/.zshrc-after ] && source ~/.zshrc-after ]
