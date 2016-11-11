@@ -65,10 +65,10 @@
   shell: git clone https://github.com/bronson/vim-trailing-whitespace.git ~/.vim/bundle/vim-trailing-whitespace
   when: not f.stat.exists
 
-- stat: path={{ home }}/.vim/bundle/indentLine
+- stat: path={{ home }}/.vim/bundle/vim-indent-guides
   register: f
-- name: install indentLine
-  shell: git clone https://github.com/Yggdroot/indentLine.git ~/.vim/bundle/indentLine
+- name: install indent guides
+  shell: git clone https://github.com/nathanaelkane/vim-indent-guides.git ~/.vim/bundle/vim-indent-guides
   when: not f.stat.exists
 
 - stat: path={{ home }}/.vim/bundle/neocomplete.vim

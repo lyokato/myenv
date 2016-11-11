@@ -49,7 +49,6 @@ let g:syntastic_mode_map = {'mode': 'passive', 'active_filetypes': ['elixir']}
 
 nnoremap <silent> <Leader>r :exec '!elixir ' . expand('%p') <CR>
 
-
 colorscheme onedark
 
 hi TabLine     term=reverse cterm=reverse ctermfg=white ctermbg=black
@@ -57,7 +56,14 @@ hi TabLineSel  term=bold cterm=bold,underline ctermfg=cyan
 hi TabLineFill term=reverse cterm=reverse ctermfg=white ctermbg=black
 
 autocmd BufWritePre * :FixWhitespace
-let g:indentLine_color_term = 239
+
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
+let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'tagbar', 'unite']
+let g:indent_guides_auto_colors=0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#444433 ctermbg=236
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#333344 ctermbg=237
 
 """""""""""""""""""""""newcomplete setting"""""""""""""""""""""""""""
 "" copied from https://github.com/Shougo/neocomplete.vim
