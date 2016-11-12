@@ -30,7 +30,7 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
-PATH=/bin:/usr/bin:/usr/local/bin:/usr/local/opt/coreutils/libexec/gnubin:${PATH}
+PATH=/usr/local/bin:/bin:/usr/bin:/usr/local/opt/coreutils/libexec/gnubin:${PATH}
 export PATH
 
 alias ls='ls --color=auto'
