@@ -23,6 +23,12 @@
   shell: git clone https://github.com/mattreduce/vim-mix.git ~/.vim/bundle/vim-mix
   when: not f.stat.exists
 
+- stat: path={{ home }}/.vim/bundle/vim-go
+  register: f
+- name: install vim-go
+  shell: git clone https://github.com/fatih/vim-go.git ~/.vim/bundle/vim-go
+  when: not f.stat.exists
+
 - stat: path={{ home }}/.vim/bundle/syntastic
   register: f
 - name: install syntastic

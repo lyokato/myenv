@@ -11,28 +11,16 @@ noremap \ ,
 
 noremap ; :
 
-" nerdtree
-"
-" set on shell env
-"export LC_CTYPE=en_US.UTF-8
-"export LC_ALL=en_US.UTF-8
-"
+" airline
+set laststatus=2
+
+"============ Navigation Setting  ===============
+
 let NERDTreeShowHidden = 1
 let g:nerdtree_tabs_open_on_console_startup=1
 map <C-n> :NERDTreeTabsToggle<CR>
 
-" airline
-set laststatus=2
-
-" onedark
-if (empty($TMUX))
-	if (has("nvim"))
-		let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-	endif
-	if (has("termguicolors"))
-		set termguicolors
-	endif
-endif
+"============ Syntax  ===============
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -43,31 +31,71 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+"=========== Elixir Setting : Start =============
+
 let g:syntastic_elixir_checkers = ['elixir']
 let g:syntastic_enable_elixir_checker = 1
 let g:syntastic_mode_map = {'mode': 'passive', 'active_filetypes': ['elixir']}
 
 nnoremap <silent> <Leader>r :exec '!elixir ' . expand('%p') <CR>
 
+"============ Color Setting : Color Schema  ======
+
+if (empty($TMUX))
+	if (has("nvim"))
+		let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+	endif
+	if (has("termguicolors"))
+		set termguicolors
+	endif
+endif
+
 colorscheme onedark
+
+"============ Color Setting : Tabs  ======
 
 hi TabLine     term=reverse cterm=reverse ctermfg=white ctermbg=black
 hi TabLineSel  term=bold cterm=bold,underline ctermfg=cyan
 hi TabLineFill term=reverse cterm=reverse ctermfg=white ctermbg=black
 
-autocmd BufWritePre * :FixWhitespace
 
+"============ Color Setting : Indent Guide ============
+"
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
 let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'tagbar', 'unite']
 let g:indent_guides_auto_colors=0
+
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#444433 ctermbg=236
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#333344 ctermbg=237
 
-"""""""""""""""""""""""newcomplete setting"""""""""""""""""""""""""""
-"" copied from https://github.com/Shougo/neocomplete.vim
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"============ On Closing File, Automatically delete WhiteSpaces ======
+
+autocmd BufWritePre * :FixWhitespace
+
+"=========== Golang Setting : Start =============
+
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
+let g:go_fmt_command = "goimports"
+
+autocmd FileType go :highlight goErr cterm=bold ctermfg=214
+autocmd FileType go :match goErr /\<err\>/
+
+let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+let g:go_list_type = "quickfix"
+
+"============= newcomplete setting ============================
+" This required Lua Plugin Implemented Vim
+" brew install vim --with-lua
+" ============================================================
 "Note: This option must be set in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
