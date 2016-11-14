@@ -57,9 +57,9 @@ colorscheme onedark
 
 "============ Color Setting : Tabs  ======
 
-hi TabLine     term=reverse cterm=reverse ctermfg=white ctermbg=black
+hi TabLine     term=reverse cterm=reverse ctermfg=23 ctermbg=black
 hi TabLineSel  term=bold cterm=bold,underline ctermfg=cyan
-hi TabLineFill term=reverse cterm=reverse ctermfg=white ctermbg=black
+hi TabLineFill term=reverse cterm=reverse ctermfg=23 ctermbg=black
 
 
 "============ Color Setting : Indent Guide ============
