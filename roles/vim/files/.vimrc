@@ -6,9 +6,12 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 set hlsearch
+set incsearch
+set ignorecase
+set smartcase
 
 let mapleader = ","
-"noremap \ ,
+noremap \ ,
 "noremap ; :
 
 " airline

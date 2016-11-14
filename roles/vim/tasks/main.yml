@@ -53,6 +53,12 @@
   shell: git clone https://github.com/vim-airline/vim-airline.git ~/.vim/bundle/vim-airline
   when: not f.stat.exists
 
+- stat: path={{ home }}/.vim/bundle/vim-fugitive
+  register: f
+- name: install vim-fugitive
+  shell: git clone https://github.com/tpope/vim-fugitive.git ~/.vim/bundle/vim-fugitive
+  when: not f.stat.exists
+
 - stat: path={{ home }}/.vim/bundle/onedark.vim
   register: f
 - name: install onedark.vim
