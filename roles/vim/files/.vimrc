@@ -5,11 +5,11 @@ set number
 set expandtab
 set tabstop=2
 set shiftwidth=2
+set hlsearch
 
 let mapleader = ","
-noremap \ ,
-
-noremap ; :
+"noremap \ ,
+"noremap ; :
 
 " airline
 set laststatus=2
