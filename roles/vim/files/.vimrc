@@ -9,6 +9,9 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+set title
+set ruler
+set wildmenu wildmode=list:full
 
 let mapleader = ","
 noremap \ ,
