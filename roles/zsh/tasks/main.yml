@@ -2,13 +2,13 @@
 - stat: path={{ home }}/.zgen
   register: f
 - name: install zgen
-  shell: git clone https://github.com/tarjoilija/zgen.git ~/.zgen
+  git: repo=https://github.com/tarjoilija/zgen.git dest=~/.zgen accept_hostkey=yes
   when: not f.stat.exists
 
 - stat: path={{ home }}/.zsh/dircolors-solarized
   register: f
 - name: install solarized
-  shell: git clone https://github.com/seebi/dircolors-solarized ~/.zsh/dircolors-solarized
+  git: repo=https://github.com/seebi/dircolors-solarized dest=~/.zsh/dircolors-solarized accept_hostkey=yes
   when: not f.stat.exists
 
 - name: copy default .zshrc

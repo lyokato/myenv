@@ -8,103 +8,103 @@
 - stat: path={{ home }}/.vim/autoload/pathogen.vim
   register: f
 - name: install pathogen
-  shell: curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+  get_url: url=https://tpo.pe/pathogen.vim dest=~/.vim/autoload/pathogen.vim
   when: not f.stat.exists
 
 - stat: path={{ home }}/.vim/bundle/vim-elixir
   register: f
 - name: install elixir syntax
-  shell: git clone https://github.com/elixir-lang/vim-elixir.git ~/.vim/bundle/vim-elixir
+  git: repo=https://github.com/elixir-lang/vim-elixir.git dest=~/.vim/bundle/vim-elixir accept_hostkey=yes
   when: not f.stat.exists
 
 - stat: path={{ home }}/.vim/bundle/vim-mix
   register: f
 - name: install elixir mix
-  shell: git clone https://github.com/mattreduce/vim-mix.git ~/.vim/bundle/vim-mix
+  git: repo=https://github.com/mattreduce/vim-mix.git dest=~/.vim/bundle/vim-mix accept_hostkey=yes
   when: not f.stat.exists
 
 - stat: path={{ home }}/.vim/bundle/vim-go
   register: f
 - name: install vim-go
-  shell: git clone https://github.com/fatih/vim-go.git ~/.vim/bundle/vim-go
+  git: repo=https://github.com/fatih/vim-go.git dest=~/.vim/bundle/vim-go accept_hostkey=yes
   when: not f.stat.exists
 
 - stat: path={{ home }}/.vim/bundle/syntastic
   register: f
 - name: install syntastic
-  shell: git clone https://github.com/scrooloose/syntastic.git ~/.vim/bundle/syntastic
+  git: repo=https://github.com/scrooloose/syntastic.git dest=~/.vim/bundle/syntastic accept_hostkey=yes
   when: not f.stat.exists
 
 - stat: path={{ home }}/.vim/bundle/nerdtree
   register: f
 - name: install nerdtree
-  shell: git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
+  git: repo=https://github.com/scrooloose/nerdtree.git dest=~/.vim/bundle/nerdtree accept_hostkey=yes
   when: not f.stat.exists
 
 - stat: path={{ home }}/.vim/bundle/vim-nerdtree-tabs
   register: f
 - name: install nerdtree tabs
-  shell: git clone https://github.com/jistr/vim-nerdtree-tabs.git ~/.vim/bundle/vim-nerdtree-tabs
+  git: repo=https://github.com/jistr/vim-nerdtree-tabs.git dest=~/.vim/bundle/vim-nerdtree-tabs accept_hostkey=yes
   when: not f.stat.exists
 
 - stat: path={{ home }}/.vim/bundle/vim-airline
   register: f
 - name: install vim-airline
-  shell: git clone https://github.com/vim-airline/vim-airline.git ~/.vim/bundle/vim-airline
+  git: repo=https://github.com/vim-airline/vim-airline.git dest=~/.vim/bundle/vim-airline accept_hostkey=yes
   when: not f.stat.exists
 
 - stat: path={{ home }}/.vim/bundle/vim-fugitive
   register: f
 - name: install vim-fugitive
-  shell: git clone https://github.com/tpope/vim-fugitive.git ~/.vim/bundle/vim-fugitive
+  git: repo=https://github.com/tpope/vim-fugitive.git dest=~/.vim/bundle/vim-fugitive accept_hostkey=yes
   when: not f.stat.exists
 
 - stat: path={{ home }}/.vim/bundle/vim-surround
   register: f
 - name: install vim-surround
-  shell: git clone https://github.com/tpope/vim-surround.git ~/.vim/bundle/vim-surround
+  git: repo=https://github.com/tpope/vim-surround.git dest=~/.vim/bundle/vim-surround accept_hostkey=yes
   when: not f.stat.exists
 
 - stat: path={{ home }}/.vim/bundle/onedark.vim
   register: f
 - name: install onedark.vim
-  shell: git clone https://github.com/joshdick/onedark.vim.git ~/.vim/bundle/onedark.vim
+  git: repo=https://github.com/joshdick/onedark.vim.git dest=~/.vim/bundle/onedark.vim accept_hostkey=yes
   when: not f.stat.exists
 
 - stat: path={{ home }}/.vim/bundle/vim-polyglot
   register: f
 - name: install vim-polyglt
-  shell: git clone https://github.com/sheerun/vim-polyglot.git ~/.vim/bundle/vim-polyglot
+  git: repo=https://github.com/sheerun/vim-polyglot.git dest=~/.vim/bundle/vim-polyglot accept_hostkey=yes
   when: not f.stat.exists
 
 - stat: path={{ home }}/.vim/bundle/vim-trailing-whitespace
   register: f
 - name: install vim-trailing-whitespace
-  shell: git clone https://github.com/bronson/vim-trailing-whitespace.git ~/.vim/bundle/vim-trailing-whitespace
+  git: repo=https://github.com/vim-trailing-whitespace.git dest=~/.vim/bundle/vim-trailing-whitespace accept_hostkey=yes
   when: not f.stat.exists
 
 - stat: path={{ home }}/.vim/bundle/vim-indent-guides
   register: f
 - name: install indent guides
-  shell: git clone https://github.com/nathanaelkane/vim-indent-guides.git ~/.vim/bundle/vim-indent-guides
+  git: repo=https://github.com/nathanaelkane/vim-indent-guides.git dest=~/.vim/bundle/vim-indent-guides accept_hostkey=yes
   when: not f.stat.exists
 
 - stat: path={{ home }}/.vim/bundle/neocomplete.vim
   register: f
 - name: install neocomplete
-  shell: git clone https://github.com/Shougo/neocomplete.vim.git ~/.vim/bundle/neocomplete.vim
+  git: repo=https://github.com/Shougo/neocomplete.vim.git dest=~/.vim/bundle/neocomplete.vim accept_hostkey=yes
   when: not f.stat.exists
 
 - stat: path={{ home }}/.vim/bundle/vim-endwise
   register: f
 - name: install endwise
-  shell: git clone https://github.com/tpope/vim-endwise.git ~/.vim/bundle/vim-endwise
+  git: repo=https://github.com/tpope/vim-endwise.git dest=~/.vim/bundle/vim-endwise accept_hostkey=yes
   when: not f.stat.exists
 
 - stat: path={{ home }}/.vim/bundle/vim-autoclose
   register: f
 - name: install autoclose
-  shell: git clone https://github.com/Townk/vim-autoclose.git ~/.vim/bundle/vim-autoclose
+  git: repo=https://github.com/Townk/vim-autoclose.git dest=~/.vim/bundle/vim-autoclose accept_hostkey=yes
   when: not f.stat.exists
 
 - name: copy default .vimrc
