@@ -1,0 +1,38 @@
+[core]
+  excludesfile = ~/.gitignore
+
+[user]
+    name = {{ username }}
+    email = {{ email }}
+
+[alias]
+    amend = commit --amend
+    d1 = diff HEAD^
+    d2 = diff HEAD^^
+    d3 = diff HEAD^^^
+    d4 = diff HEAD^^^^
+    d5 = diff HEAD^^^^^
+
+[color]
+    diff   = auto
+    status = auto
+    branch = auto
+
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+
+[core]
+	editor = /usr/bin/vim

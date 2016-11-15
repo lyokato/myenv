@@ -1,0 +1,6 @@
+- name: copy default .gitconfig
+  template: src=gitconfig.j2 dest={{ home }}/.gitconfig owner={{ username }} group={{ groupname }} mode=0644
+
+- name: copy default .gitignore
+  copy: src=gitignore dest={{ home }}/.gitignore owner={{ username }} group={{ groupname }} mode=0644
+
