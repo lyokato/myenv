@@ -80,7 +80,7 @@
 - stat: path={{ home }}/.vim/bundle/vim-trailing-whitespace
   register: f
 - name: install vim-trailing-whitespace
-  git: repo=https://github.com/vim-trailing-whitespace.git dest=~/.vim/bundle/vim-trailing-whitespace accept_hostkey=yes
+  git: repo=https://github.com/bronson/vim-trailing-whitespace.git dest=~/.vim/bundle/vim-trailing-whitespace accept_hostkey=yes
   when: not f.stat.exists
 
 - stat: path={{ home }}/.vim/bundle/vim-indent-guides
