@@ -7,4 +7,9 @@ alias ctags="`brew --prefix`/bin/ctags"
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
+export GOROOT=/usr/local/opt/go/libexec
 export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
+export RBENV_ROOT=/usr/local/var/rbenv
