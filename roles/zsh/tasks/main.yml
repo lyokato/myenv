@@ -14,9 +14,7 @@
 - name: copy default .zshrc
   copy: src=.zshrc dest={{ home }}/.zshrc owner={{ username }} group={{ groupname }} mode=0644
 
-- name: copy default .zshrc-after
-  copy: src=.zshrc-after dest={{ home }}/.zshrc-after owner={{ username }} group={{ groupname }} mode=0644
+  #- name: copy default .zshrc-after
+  #  copy: src=.zshrc-after dest={{ home }}/.zshrc-after owner={{ username }} group={{ groupname }} mode=0644
 
-- name: copy default .tmux.conf
-  copy: src=.tmux.conf dest={{ home }}/.tmux.conf owner={{ username }} group={{ groupname }} mode=0644
 

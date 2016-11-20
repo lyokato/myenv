@@ -4,3 +4,4 @@
   - { role: vim, username: lyokato, groupname: staff, home: /Users/lyokato }
   - { role: zsh, username: lyokato, groupname: staff, home: /Users/lyokato }
   - { role: git, username: lyokato, email: lyo.kato@gmail.com, groupname: staff, home: /Users/lyokato }
+  - { role: tmux, username: lyokato, groupname: staff, home: /Users/lyokato, shell: /usr/local/bin/zsh }
