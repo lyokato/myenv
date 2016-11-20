@@ -24,6 +24,7 @@ setopt auto_cd
 setopt correct
 setopt auto_pushd
 setopt pushd_ignore_dups
+setopt share_history
 
 setopt histignorealldups
 HISTFILE=~/.zsh_history
