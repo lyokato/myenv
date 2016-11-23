@@ -1,0 +1,14 @@
+---
+- stat: path={{ home }}/.config/fish/functions/fisher.fish
+  register: f
+- name: install fisherman
+  get_url: url=https://git.io/fisherman dest=~/.config/fish/functions/fisher.fish
+  when: not f.stat.exists
+
+- name: install fisherman plugins
+  shell: fisher {{ item }}
+  with_items:
+    - fzf
+
+- name: copy default config.fish
+  copy: src=config.fish dest={{ home }}/.config/fish/config.fish  owner={{ username }} group={{ groupname }} mode=0644
