@@ -89,12 +89,6 @@
   git: repo=https://github.com/nathanaelkane/vim-indent-guides.git dest=~/.vim/bundle/vim-indent-guides accept_hostkey=yes
   when: not f.stat.exists
 
-- stat: path={{ home }}/.vim/bundle/neocomplete.vim
-  register: f
-- name: install neocomplete
-  git: repo=https://github.com/Shougo/neocomplete.vim.git dest=~/.vim/bundle/neocomplete.vim accept_hostkey=yes
-  when: not f.stat.exists
-
 - stat: path={{ home }}/.vim/bundle/vim-endwise
   register: f
 - name: install endwise
