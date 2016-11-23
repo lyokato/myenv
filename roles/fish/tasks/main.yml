@@ -5,10 +5,13 @@
   get_url: url=https://git.io/fisherman dest=~/.config/fish/functions/fisher.fish
   when: not f.stat.exists
 
+- name: check fzf installation
+  shell: grep -q '^fisherman/fzf$' {{ home }}/.config/fish/fishfile
+  register: fzfcnt
+
 - name: install fisherman plugins
-  shell: fisher {{ item }}
-  with_items:
-    - fzf
+  shell: fisher fzf
+  when: fzfcnt.rc != 0
 
 - name: copy default config.fish
   copy: src=config.fish dest={{ home }}/.config/fish/config.fish  owner={{ username }} group={{ groupname }} mode=0644
