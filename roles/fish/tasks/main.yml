@@ -9,9 +9,17 @@
   shell: grep -q '^fisherman/fzf$' {{ home }}/.config/fish/fishfile
   register: fzfcnt
 
-- name: install fisherman plugins
+- name: install fisherman fzf-plugin
   shell: fisher fzf
   when: fzfcnt.rc != 0
+
+- name: check plugin-z installation
+  shell: grep -q '^fisherman/z$' {{ home }}/.config/fish/fishfile
+  register: zcnt
+
+- name: install fisherman z-plugin
+  shell: fisher z
+  when: zcnt.rc != 0
 
 - name: copy default config.fish
   copy: src=config.fish dest={{ home }}/.config/fish/config.fish  owner={{ username }} group={{ groupname }} mode=0644
