@@ -1,5 +1,6 @@
-set PATH /usr/local/bin /bin /usr/bin $PATH
-set -U FZF_TMUX 1
+set -x PATH /usr/local/bin /bin /usr/bin $PATH
+set -x FZF_TMUX 1
+set -x EDITOR vim
 
 function chpwd --on-variable PWD
   set -l cursor_pos (commandline --cursor)
@@ -9,8 +10,10 @@ function chpwd --on-variable PWD
   end
 end
 
- set fish_git_dirty_color red
- set fish_git_not_dirty_color green
+ # This function borrowed from
+ # http://zogovic.com/post/37906589287/showing-git-branch-in-fish-shell-prompt
+set fish_git_dirty_color     red
+set fish_git_not_dirty_color green
 
 function parse_git_branch
   set -l branch (git branch 2> /dev/null | grep -e '\* ' | sed 's/^..\(.*\)/\1/')
