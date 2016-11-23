@@ -1,4 +1,5 @@
 set PATH /usr/local/bin /bin /usr/bin $PATH
+set -U FZF_TMUX 1
 
 function chpwd --on-variable PWD
   set -l cursor_pos (commandline --cursor)
