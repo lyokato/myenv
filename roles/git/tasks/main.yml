@@ -4,3 +4,6 @@
 - name: copy default .gitignore
   copy: src=gitignore dest={{ home }}/.gitignore owner={{ username }} group={{ groupname }} mode=0644
 
+- name: copy default .tigrc
+  copy: src=tigrc dest={{ home }}/.tigrc owner={{ username }} group={{ groupname }} mode=0644
+

@@ -1,0 +1,4 @@
+set main-view = id:width=12 date author commit-title:graph=yes,refs=yes
+set vertical-split = auto
+set split-view-height = 70%
+set split-view-width = 50%
