@@ -12,6 +12,7 @@ set smartcase
 set title
 set ruler
 set wildmenu wildmode=list:full
+set shell=/bin/bash
 
 let mapleader = ","
 noremap \ ,
