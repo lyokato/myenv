@@ -36,3 +36,7 @@ function fish_right_prompt
 end
 
 # fish_update_completions
+#
+if test -e ~/.config/fish/config-after.fish
+  . ~/.config/fish/config-after.fish
+end
