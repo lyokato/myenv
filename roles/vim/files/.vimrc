@@ -102,4 +102,4 @@ let g:go_list_type = "quickfix"
 "=========== C++ Setting : Start =============
 
 let g:syntastic_cpp_compiler = 'clang++'
-let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
+let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++ -D"WEBRTC_POSIX"'
