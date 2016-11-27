@@ -101,6 +101,18 @@
   git: repo=https://github.com/Townk/vim-autoclose.git dest=~/.vim/bundle/vim-autoclose accept_hostkey=yes
   when: not f.stat.exists
 
+- stat: path={{ home }}/.vim/bundle/fzf.vim
+  register: f
+- name: install autoclose
+  git: repo=https://github.com/junegunn/fzf.vim.git dest=~/.vim/bundle/fzf.vim accept_hostkey=yes
+  when: not f.stat.exists
+
+- stat: path={{ home }}/.vim/bundle/ag.vim
+  register: f
+- name: install autoclose
+  git: repo=https://github.com/rking/ag.vim.git dest=~/.vim/bundle/ag.vim accept_hostkey=yes
+  when: not f.stat.exists
+
 - name: copy default .vimrc
   copy: src=.vimrc dest={{ home }}/.vimrc owner={{ username }} group={{ groupname }} mode=0644
 

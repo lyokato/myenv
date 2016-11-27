@@ -13,6 +13,7 @@ set title
 set ruler
 set wildmenu wildmode=list:full
 set shell=/bin/bash
+set rtp+=~/.fzf
 
 let mapleader = ","
 noremap \ ,
@@ -20,6 +21,9 @@ noremap \ ,
 
 " airline
 set laststatus=2
+
+"============ FZF Setting ======================
+let g:fzf_layout = { 'down': '~20%' }
 
 "============ Navigation Setting  ===============
 
