@@ -35,7 +35,7 @@ function fish_right_prompt
   end
 end
 
-if not seq -q LS_COLORS
+if not set -q LS_COLORS
   if type -q -f dircolors
     eval (dircolors -c ~/.config/fish/dircolors-solarized/dircolors.ansi-dark | sed 's/>&\/dev\/null$//')
   end
