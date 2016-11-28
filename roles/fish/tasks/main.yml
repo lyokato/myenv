@@ -8,6 +8,12 @@
   file: path={{ home }}/.config/fish/fishfile state=touch owner={{ username }} group={{ groupname }} mode=0644
   when: not f.stat.exists
 
+- stat: path={{ home }}/.config/fish/dircolors-solarized
+  register: f
+- name: install solarized
+  git: repo=https://github.com/seebi/dircolors-solarized dest=~/.config/fish/dircolors-solarized accept_hostkey=yes
+  when: not f.stat.exists
+
 - name: copy default config.fish
   copy: src=config.fish dest={{ home }}/.config/fish/config.fish  owner={{ username }} group={{ groupname }} mode=0644
 
