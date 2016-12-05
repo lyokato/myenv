@@ -22,6 +22,8 @@ noremap \ ,
 " airline
 set laststatus=2
 
+nnoremap O :<C-u>call append(expand('.'), '')<Cr>j
+
 "============ FZF Setting ======================
 let g:fzf_layout = { 'down': '~20%' }
 
