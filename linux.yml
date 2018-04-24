@@ -1,0 +1,8 @@
+---
+- hosts: local
+  roles:
+  - { role: vim, username: lyokato, groupname: lyokato, home: /home/lyokato }
+  - { role: zsh, username: lyokato, groupname: lyokato, home: /home/lyokato }
+#  - { role: fish, username: lyokato, groupname: lyokato, home: /home/lyokato }
+  - { role: git, username: lyokato, email: lyo.kato@gmail.com, groupname: lyokato, home: /home/lyokato }
+  - { role: tmux, username: lyokato, groupname: lyokato, home: /home/lyokato, shell: /bin/zsh }
