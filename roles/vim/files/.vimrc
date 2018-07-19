@@ -111,6 +111,6 @@ let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++ -D"WEBRTC_POS
 
 
 
-autocmd ColorScheme * highlight Normal ctermbg=none
-autocmd ColorScheme * highlight LineNr ctermbg=none
+autocmd ColorScheme * highlight Normal ctermbg=234
+autocmd ColorScheme * highlight LineNr ctermbg=234
 colorscheme onedark
