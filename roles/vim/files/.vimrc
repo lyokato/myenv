@@ -63,7 +63,6 @@ if (empty($TMUX))
 	endif
 endif
 
-colorscheme onedark
 
 "============ Color Setting : Tabs  ======
 
@@ -109,3 +108,9 @@ let g:go_list_type = "quickfix"
 
 let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++ -D"WEBRTC_POSIX"'
+
+
+
+autocmd ColorScheme * highlight Normal ctermbg=none
+autocmd ColorScheme * highlight LineNr ctermbg=none
+colorscheme onedark
