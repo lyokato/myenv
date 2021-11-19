@@ -1,4 +1,22 @@
-execute pathogen#infect()
+call plug#begin('~/.vim/plugged')
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'joshdick/onedark.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'elixir-editors/vim-elixir'
+Plug 'mattn/vim-goimports'
+Plug 'cohama/lexima.vim'
+call plug#end()
+
 syntax on
 filetype plugin indent on
 set number
@@ -33,26 +51,6 @@ let NERDTreeShowHidden = 1
 let g:nerdtree_tabs_open_on_console_startup=1
 map <C-n> :NERDTreeTabsToggle<CR>
 
-"============ Syntax  ===============
-
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-"=========== Elixir Setting : Start =============
-
-let g:syntastic_elixir_checkers = ['elixir']
-let g:syntastic_enable_elixir_checker = 1
-let g:syntastic_mode_map = {'mode': 'passive', 'active_filetypes': ['elixir']}
-
-nnoremap <silent> <Leader>r :exec '!elixir ' . expand('%p') <CR>
-
-"============ Color Setting : Color Schema  ======
 
 if (empty($TMUX))
 	if (has("nvim"))
@@ -70,7 +68,6 @@ hi TabLine     term=reverse cterm=reverse ctermfg=23 ctermbg=black
 hi TabLineSel  term=bold cterm=bold,underline ctermfg=cyan
 hi TabLineFill term=reverse cterm=reverse ctermfg=23 ctermbg=black
 
-
 "============ Color Setting : Indent Guide ============
 "
 let g:indent_guides_enable_on_vim_startup = 1
@@ -86,31 +83,10 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#333344 ctermbg=237
 
 autocmd BufWritePre * :FixWhitespace
 
-"=========== Golang Setting : Start =============
-
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_types = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
-
-let g:go_fmt_command = "goimports"
-
-autocmd FileType go :highlight goErr cterm=bold ctermfg=214
-autocmd FileType go :match goErr /\<err\>/
-
-let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
-let g:go_list_type = "quickfix"
-
-"=========== C++ Setting : Start =============
-
-let g:syntastic_cpp_compiler = 'clang++'
-let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++ -D"WEBRTC_POSIX"'
-
-
-
 autocmd ColorScheme * highlight Normal ctermbg=234
 autocmd ColorScheme * highlight LineNr ctermbg=234
 colorscheme onedark
+
+set completeopt=menuone,noinsert
+inoremap <expr><CR>  pumvisible() ? "<C-y>" : "<CR>"
+
